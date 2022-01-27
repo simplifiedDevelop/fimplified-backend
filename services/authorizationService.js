@@ -8,7 +8,7 @@ const authorizationService = {
             status: 200,
             message: "Ok"
         }
-        jwt.verify(token, conn.llave, function(err, decoded){
+        jwt.verify(token, conn.key, function(err, decoded){
             if(err){
                 response = {
                     status: 500,

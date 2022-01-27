@@ -1,11 +1,19 @@
 const mysql      	= require('mysql');
 const connection 	= mysql.createConnection({
-  host     : 'localhost',
-  user     : 'root',
-  password : 'bonfi2022',
-  port: 3306,
-  database : 'SimplifiedBackend'
+	host     : process.env.DB_HOST,
+	user     : process.env.DB_USER,
+	password : process.env.DB_PASSWORD,
+	port	 : process.env.DB_PORT,
+	database : process.env.DB_NAME
 });
+
+/*const connection 	= mysql.createConnection({
+	host     : 'db-mysql-nysp-do-user-10669695-0.b.db.ondigitalocean.com',
+	user     : 'doadmin',
+	password : 'THfwmCjBQjhaX6LD',
+	port: 25060,
+	database : 'SimplifiedBackend'
+  });*/
  
 connection.connect(function(err){
 	if (err) {
@@ -29,7 +37,7 @@ let query = (sql) => {
 
 let Conn = {
 	query: query,
-	llave: "mipassword123"
+	key: "mipassword123"
 }
 
 module.exports = Conn

@@ -2,6 +2,7 @@
 const express 		= require('express');
 const app 			= express();
 const bodyParser 	= require('body-parser');
+require('dotenv').config()
 
 app.use(bodyParser.json());
 // parse requests of content-type - application/x-www-form-urlencoded
@@ -17,14 +18,14 @@ global.Cors 		= require('./config/cors.js');
 app.use(Cors.cors(Cors.corsOptions));
 //REQUERIR EL USO DE JWT Y SETEO DE CLAVE BASE PARA ENCRIPTACIÓN
 jwt 				= require('jsonwebtoken');
-app.set('llave', conn.llave);
+app.set('key', conn.key);
 
 let env;
 try {
 	env = require('./env');
 } catch(e){
 	env = {
-		port: 3000
+		port: process.env.PORT
 	}
 }
 //LEVANTAR LA API

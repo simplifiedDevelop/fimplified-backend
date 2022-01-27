@@ -23,7 +23,7 @@ const UserService = {
             const comparison = await bcrypt.compare(password, user.password)
             if(comparison){
                 const payload 	= {user};
-                const token 	= jwt.sign(payload, conn.llave, {expiresIn: 7200});
+                const token 	= jwt.sign(payload, conn.key, {expiresIn: 7200});
                 response 		= {response: user, token: token};
                 return response;
             }

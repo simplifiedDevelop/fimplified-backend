@@ -40,13 +40,11 @@ let Usuario = {
 	},
 
 	getUsers: async function(){
-		console.log("all")
 		let sql 		= `
 							SELECT * FROM Users
 						`
 		let response = {susses: false}
 		let resultado 	= await conn.query(sql);
-		console.log(resultado)
 		if (resultado.code) {
 	 		//response 	= {error: "Error en consulta SQL"};
 			response = {susses: false}
