@@ -6,6 +6,12 @@ module.exports = function(app){
 	const authorizationService = require ('../services/authorizationService.js');
 	app.use(Cors.cors(Cors.corsOptions));
 
+
+	app.get('/users/test', async function(req, res){
+		let response 	= "Running";
+		res.send(response);
+	})
+
 	//Devuelve JSON con la colección de objetos "usuario" activos.
 	app.get('/users', async function(req, res){
 		let rols = ["Admin"]
