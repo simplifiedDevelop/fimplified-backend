@@ -17,6 +17,8 @@ global.conn 		= require('./config/conn.js');
 global.Cors 		= require('./config/cors.js');
 app.use(Cors.cors(Cors.corsOptions));
 //REQUERIR EL USO DE JWT Y SETEO DE CLAVE BASE PARA ENCRIPTACIÓN
+
+
 jwt 				= require('jsonwebtoken');
 app.set('key', conn.key);
 
